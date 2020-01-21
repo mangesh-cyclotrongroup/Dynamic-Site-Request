@@ -33,6 +33,8 @@ namespace SiteRequest
 
         private async Task HandleSystemMessage(Activity message)
         {
+            ConnectorClient connector = new ConnectorClient(new Uri(message.ServiceUrl));
+
             switch (message.Type)
             {
                 case ActivityTypes.DeleteUserData:
@@ -45,9 +47,9 @@ namespace SiteRequest
                     // Not available in all channels
                     if (message.MembersAdded.Any(m => m.Id == message.Recipient.Id))
                     {
-                        ConnectorClient connector = new ConnectorClient(new Uri(message.ServiceUrl));
+                        //ConnectorClient connector = new ConnectorClient(new Uri(message.ServiceUrl));
                         var welcomeMsg = message.CreateReply("Welcome to the Bot...!");
-                       // await connector.Conversations.ReplyToActivityAsync(welcomeMsg);
+                        // await connector.Conversations.ReplyToActivityAsync(welcomeMsg);
                         await Conversation.SendAsync(message, () => new Dialogs.RootDialog());
                     }
 
@@ -57,8 +59,10 @@ namespace SiteRequest
                     // Activity.From + Activity.Action represent what happened
                     break;
                 case ActivityTypes.Typing:
-
-                    // Handle knowing tha the user is typing
+                    
+                    var reply = message.CreateReply(String.Empty);
+                    reply.Type = ActivityTypes.Typing;
+                    await connector.Conversations.ReplyToActivityAsync((Activity)reply);
 
                     break;
 

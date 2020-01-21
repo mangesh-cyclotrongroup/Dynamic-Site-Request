@@ -14,7 +14,7 @@ namespace SiteRequest.Dialogs
 
     {
         public static string schemaVersion = "1.2.4";
-        [Obsolete]
+       
         public async Task StartAsync(IDialogContext context)
 
         {
@@ -103,7 +103,6 @@ namespace SiteRequest.Dialogs
 
         }
 
-        [Obsolete]
         public async Task SiteRequestDialogAsync(IDialogContext context)
         {
             var replyMessage = context.MakeMessage();
@@ -141,6 +140,11 @@ namespace SiteRequest.Dialogs
                     }
                     else
                     {
+
+                        //Insert data into database here.
+
+
+
                         // Save Information in service bus
                         replyMessage.Text = "We have submiited your site request";
                         await context.PostAsync(replyMessage);
@@ -194,108 +198,6 @@ namespace SiteRequest.Dialogs
             return attachment;
         }
 
-        [Obsolete]
-        public Attachment CreateSiteRequest()
-        {
-            List<string> _teamsType = new List<string>
-                    {
-                        { "Public" },
-                        {"Private" }
-                    };
-            List<string> _teamsClassification = new List<string>
-                    {
-                        { "Internal" },
-                        {"External" },
-                        { "Business" },
-                        {"Protected" },
-                        { "Important" },
-                        {"Personal" }
-                    };
-
-            //var choicesTeamOwners = _teamsa.Select(s => new AdaptiveChoice { Title = s.Key, Value = s.Key }).ToList();
-            var choicesType = _teamsType.Select(s => new AdaptiveChoice { Title = s, Value = s }).ToList();
-            var choicesClassification = _teamsClassification.Select(s => new AdaptiveChoice { Title = s, Value = s }).ToList();
-
-
-            var card = new AdaptiveCard()
-            {
-
-                Version = new AdaptiveSchemaVersion(1, 0),
-                Body =
-                        {
-                new AdaptiveTextBlock("Team Display Name*"),
-                            new AdaptiveTextInput
-                            {
-                                Id = "Teamname",
-
-                            },
-                            new AdaptiveTextBlock("Team Description*"),
-                            new AdaptiveTextInput
-                            {
-                                Id = "Description"
-
-                            },
-                             new AdaptiveTextBlock("Team MailNickname*"),
-                            new AdaptiveTextInput
-                            {
-                                Id = "MailNickname"
-
-                            },
-                            new AdaptiveTextBlock("Team Owner*"),
-                            new AdaptiveChoiceSetInput
-                            {
-                                Choices = choicesType,
-                                Id = "TeamOwners",
-                                Style = AdaptiveChoiceInputStyle.Compact,
-                                IsMultiSelect = false
-
-
-                            },
-                            new AdaptiveTextBlock("Type"),
-                            new AdaptiveChoiceSetInput
-                            {
-                                Choices = choicesType,
-                                Id = "Type",
-                                Style = AdaptiveChoiceInputStyle.Compact,
-                                IsMultiSelect = false
-
-                            },
-                                new AdaptiveTextBlock("Classification"),
-                            new AdaptiveChoiceSetInput
-                            {
-                                Choices = choicesClassification,
-                                Id = "Classification",
-                                Style = AdaptiveChoiceInputStyle.Compact,
-                                IsMultiSelect = false
-                            }
-                        },
-                Actions = new List<AdaptiveAction>
-                                         {
-                                       new AdaptiveSubmitAction
-                                         {
-                                          Title = "Create Team",
-                                          Id="btnCreateTeam",
-                                          Type = "Action.Submit",
-                                          Data = Newtonsoft.Json.Linq.JObject.FromObject(new { button = "submit" })
-
-                                       },
-
-                                        new AdaptiveSubmitAction
-                                         {
-                                          Title = "Cancel",
-                                          Type = "Action.Submit",
-                                           Data = Newtonsoft.Json.Linq.JObject.FromObject(new { button = "cancel" })
-                                        }
-                                     },
-            };
-
-            Attachment attachment = new Attachment()
-            {
-                ContentType = AdaptiveCard.ContentType,
-                Content = card
-            };
-            return attachment;
-        }
         private string GetErrorMessage(Teams team)
         {
 
