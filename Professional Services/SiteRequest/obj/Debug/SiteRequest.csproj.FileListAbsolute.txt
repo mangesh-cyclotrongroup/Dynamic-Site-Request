@@ -209,7 +209,6 @@ C:\Users\MangeshNikam\Documents\GitHub\Dynamic-Site-Request\Professional Service
 C:\Users\MangeshNikam\Documents\GitHub\Dynamic-Site-Request\Professional Services\SiteRequest\bin\ru\System.Spatial.resources.dll
 C:\Users\MangeshNikam\Documents\GitHub\Dynamic-Site-Request\Professional Services\SiteRequest\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\MangeshNikam\Documents\GitHub\Dynamic-Site-Request\Professional Services\SiteRequest\bin\zh-Hant\System.Spatial.resources.dll
-C:\Users\MangeshNikam\Documents\GitHub\Dynamic-Site-Request\Professional Services\SiteRequest\obj\Debug\SiteRequest.csprojAssemblyReference.cache
 C:\Users\MangeshNikam\Documents\GitHub\Dynamic-Site-Request\Professional Services\SiteRequest\obj\Debug\SiteRequest.csproj.CopyComplete
 C:\Users\MangeshNikam\Documents\GitHub\Dynamic-Site-Request\Professional Services\SiteRequest\obj\Debug\ProfessionalServices.SiteRequest.dll
 C:\Users\MangeshNikam\Documents\GitHub\Dynamic-Site-Request\Professional Services\SiteRequest\obj\Debug\ProfessionalServices.SiteRequest.pdb

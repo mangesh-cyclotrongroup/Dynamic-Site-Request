@@ -288,8 +288,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Manifest\color.png" />
-    <Content Include="Manifest\outline.png" />
     <Content Include="Resources\-g-Leave balance-01.png" />
     <Content Include="Resources\-g-Public holidays-01.png" />
     <Content Include="Resources\color.png" />
@@ -322,15 +320,14 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Manifest\" />
     <Folder Include="ProfilePhotos\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Manifest\manifest.json" />
     <Content Include="Cards\LeaveSent.json" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Manifest\Leave App Manifest.zip" />
     <Content Include="Cards\WelcomeCard.json" />
     <None Include="packages.config" />
     <Content Include="Views\Home\First.cshtml" />
