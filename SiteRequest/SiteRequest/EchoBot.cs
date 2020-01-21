@@ -13,7 +13,8 @@ namespace SiteRequest
         public static string schemaVersion = "1.2.4";
         public static Attachment WelcomeLeaveCard()
         {
-            var card = File.ReadAllText(@"D:\ChatBot\Professional Services\SiteRequest\Cards\WelcomeCard.json");
+            var path = System.Web.Hosting.HostingEnvironment.MapPath(@"~\Cards\WelcomeCard.json");
+            var card = File.ReadAllText(path);
             var parsedResult = AdaptiveCard.FromJson(card);
             Attachment attachment = new Attachment()
             {
